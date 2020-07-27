@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-pickup-request-heading" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.home.createOrEditLabel">Create or edit a Pickup Request</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.pickupDate" for="field_pickupDate">Pickup Date</label>
+                    <div class="d-flex">
+                        <input id="field_pickupDate" type="datetime-local" class="form-control" name="pickupDate" formControlName="pickupDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.pickupTime" for="field_pickupTime">Pickup Time</label>
+                    <div class="d-flex">
+                        <input id="field_pickupTime" type="datetime-local" class="form-control" name="pickupTime" formControlName="pickupTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.reason" for="field_reason">Reason</label>
+                    <input type="text" class="form-control" name="reason" id="field_reason"
+                           formControlName="reason"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.approvalStatus" for="field_approvalStatus">Approval Status</label>
+                    <input type="checkbox" class="form-control" name="approvalStatus" id="field_approvalStatus"
+                           formControlName="approvalStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.student" for="field_student">Student</label>
+                    <select class="form-control" id="field_student" name="student" formControlName="student">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="studentOption.id === editForm.get('student')!.value?.id ? editForm.get('student')!.value : studentOption" *ngFor="let studentOption of students; trackBy: trackById">{{ studentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "BusRouteStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE"
+    }
+  }
+}

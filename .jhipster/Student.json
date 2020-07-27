@@ -1,0 +1,84 @@
+{
+  "name": "Student",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "studentDivision",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "classTeacher",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StudentStatus",
+      "fieldValues": "ACTIVE,INACTIVE"
+    },
+    {
+      "fieldName": "parentMobileNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "parentEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "busStop",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "busRoute",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "busRoute",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "studentEvents",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "studentEvents"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "pickupRequest",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "pickupRequest",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "absenceRequest",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "absenceRequest",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200727152007",
+  "entityTableName": "student",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["isourceschooladmingatewayapp", "isourceparentsconnectgatewayapp", "isourceproductapp"],
+  "microserviceName": "isourceproductapp"
+}

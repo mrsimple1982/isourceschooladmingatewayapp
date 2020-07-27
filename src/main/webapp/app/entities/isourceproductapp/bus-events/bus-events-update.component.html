@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bus-events-heading" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusEvents.home.createOrEditLabel">Create or edit a Bus Events</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusEvents.eventType" for="field_eventType">Event Type</label>
+                    <input type="text" class="form-control" name="eventType" id="field_eventType"
+                           formControlName="eventType"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusEvents.eventDate" for="field_eventDate">Event Date</label>
+                    <div class="d-flex">
+                        <input id="field_eventDate" type="datetime-local" class="form-control" name="eventDate" formControlName="eventDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusEvents.eventStatus" for="field_eventStatus">Event Status</label>
+                    <select class="form-control" name="eventStatus" formControlName="eventStatus" id="field_eventStatus">
+                        <option value="PLANNED">{{ 'isourceschooladmingatewayappApp.BusRouteEventStatus.PLANNED' | translate }}</option>
+                        <option value="INPROGRESS">{{ 'isourceschooladmingatewayappApp.BusRouteEventStatus.INPROGRESS' | translate }}</option>
+                        <option value="COMPLETED">{{ 'isourceschooladmingatewayappApp.BusRouteEventStatus.COMPLETED' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusEvents.busRoute" for="field_busRoute">Bus Route</label>
+                    <select class="form-control" id="field_busRoute" name="busRoute" formControlName="busRoute">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="busRouteOption.id === editForm.get('busRoute')!.value?.id ? editForm.get('busRoute')!.value : busRouteOption" *ngFor="let busRouteOption of busroutes; trackBy: trackById">{{ busRouteOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

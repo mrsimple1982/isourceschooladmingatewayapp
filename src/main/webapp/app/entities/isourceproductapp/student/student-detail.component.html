@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="student">
+            <h2><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.detail.title">Student</span> {{ student.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.name">Name</span></dt>
+                <dd>
+                    <span>{{ student.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{ student.dateOfBirth }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.studentDivision">Student Division</span></dt>
+                <dd>
+                    <span>{{ student.studentDivision }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.classTeacher">Class Teacher</span></dt>
+                <dd>
+                    <span>{{ student.classTeacher }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.address">Address</span></dt>
+                <dd>
+                    <span>{{ student.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'isourceschooladmingatewayappApp.StudentStatus.' + student.status }}">{{ student.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.parentMobileNumber">Parent Mobile Number</span></dt>
+                <dd>
+                    <span>{{ student.parentMobileNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.parentEmail">Parent Email</span></dt>
+                <dd>
+                    <span>{{ student.parentEmail }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.busStop">Bus Stop</span></dt>
+                <dd>
+                    <span>{{ student.busStop }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudent.busRoute">Bus Route</span></dt>
+                <dd>
+                    <div *ngIf="student.busRoute">
+                        <a [routerLink]="['/bus-route', student.busRoute?.id, 'view']">{{ student.busRoute?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/student', student.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

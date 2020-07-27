@@ -1,0 +1,10 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "BusRouteEventStatus": {
+      "null": "",
+      "PLANNED": "PLANNED",
+      "INPROGRESS": "INPROGRESS",
+      "COMPLETED": "COMPLETED"
+    }
+  }
+}

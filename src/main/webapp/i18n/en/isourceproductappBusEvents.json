@@ -1,0 +1,29 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "isourceproductappBusEvents": {
+      "home": {
+        "title": "Bus Events",
+        "createLabel": "Create a new Bus Events",
+        "createOrEditLabel": "Create or edit a Bus Events",
+        "notFound": "No Bus Events found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Bus Events {{ id }}?"
+      },
+      "detail": {
+        "title": "Bus Events"
+      },
+      "eventType": "Event Type",
+      "eventDate": "Event Date",
+      "eventStatus": "Event Status",
+      "busRoute": "Bus Route"
+    }
+  },
+  "isourceproductappApp": {
+    "isourceproductappBusEvents": {
+      "created": "A new Bus Events is created with identifier {{ param }}",
+      "updated": "A Bus Events is updated with identifier {{ param }}",
+      "deleted": "A Bus Events is deleted with identifier {{ param }}"
+    }
+  }
+}

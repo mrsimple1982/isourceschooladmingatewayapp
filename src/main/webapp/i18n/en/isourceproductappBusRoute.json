@@ -1,0 +1,33 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "isourceproductappBusRoute": {
+      "home": {
+        "title": "Bus Routes",
+        "createLabel": "Create a new Bus Route",
+        "createOrEditLabel": "Create or edit a Bus Route",
+        "notFound": "No Bus Routes found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Bus Route {{ id }}?"
+      },
+      "detail": {
+        "title": "Bus Route"
+      },
+      "routeName": "Route Name",
+      "driver": "Driver",
+      "monitor": "Monitor",
+      "deviceId": "Device Id",
+      "routeState": "Route State",
+      "status": "Status",
+      "busEvents": "Bus Events",
+      "student": "Student"
+    }
+  },
+  "isourceproductappApp": {
+    "isourceproductappBusRoute": {
+      "created": "A new Bus Route is created with identifier {{ param }}",
+      "updated": "A Bus Route is updated with identifier {{ param }}",
+      "deleted": "A Bus Route is deleted with identifier {{ param }}"
+    }
+  }
+}

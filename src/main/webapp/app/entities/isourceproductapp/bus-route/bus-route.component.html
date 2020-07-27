@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.home.title">Bus Routes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bus-route" [routerLink]="['/bus-route/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.home.createLabel">
+            Create a new Bus Route
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="busRoutes?.length === 0">
+        <span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.home.notFound">No busRoutes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="busRoutes && busRoutes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="routeName"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.routeName">Route Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="driver"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.driver">Driver</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="monitor"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.monitor">Monitor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deviceId"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.deviceId">Device Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="routeState"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.routeState">Route State</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let busRoute of busRoutes ;trackBy: trackId">
+                    <td><a [routerLink]="['/bus-route', busRoute.id, 'view']">{{ busRoute.id }}</a></td>
+                    <td>{{ busRoute.routeName }}</td>
+                    <td>{{ busRoute.driver }}</td>
+                    <td>{{ busRoute.monitor }}</td>
+                    <td>{{ busRoute.deviceId }}</td>
+                    <td>{{ busRoute.routeState }}</td>
+                    <td jhiTranslate="{{ 'isourceschooladmingatewayappApp.BusRouteStatus.' + busRoute.status }}">{{ busRoute.status }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bus-route', busRoute.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bus-route', busRoute.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(busRoute)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="busRoutes && busRoutes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

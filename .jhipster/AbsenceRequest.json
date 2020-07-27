@@ -1,0 +1,39 @@
+{
+  "name": "AbsenceRequest",
+  "fields": [
+    {
+      "fieldName": "absenceDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "reason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "approvalStatus",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "absenceRequest",
+      "relationshipName": "student",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200727152407",
+  "entityTableName": "absence_request",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["isourceschooladmingatewayapp", "isourceparentsconnectgatewayapp", "isourceproductapp"],
+  "microserviceName": "isourceproductapp"
+}

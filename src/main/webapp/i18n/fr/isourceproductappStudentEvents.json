@@ -1,0 +1,29 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "isourceproductappStudentEvents": {
+      "home": {
+        "title": "StudentEvents",
+        "createLabel": "Créer un nouveau Student Events",
+        "createOrEditLabel": "Créer ou éditer un Student Events",
+        "notFound": "Aucun Student Events trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Student Events {{ id }} ?"
+      },
+      "detail": {
+        "title": "Student Events"
+      },
+      "eventType": "Event Type",
+      "eventDate": "Event Date",
+      "eventStatus": "Event Status",
+      "student": "Student"
+    }
+  },
+  "isourceproductappApp": {
+    "isourceproductappStudentEvents": {
+      "created": "Un nouveau Student Events a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Student Events avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Student Events avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

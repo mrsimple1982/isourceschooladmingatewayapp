@@ -1,0 +1,9 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "StudentStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE"
+    }
+  }
+}

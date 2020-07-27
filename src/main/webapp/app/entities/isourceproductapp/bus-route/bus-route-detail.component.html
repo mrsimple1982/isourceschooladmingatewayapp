@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="busRoute">
+            <h2><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.detail.title">Bus Route</span> {{ busRoute.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.routeName">Route Name</span></dt>
+                <dd>
+                    <span>{{ busRoute.routeName }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.driver">Driver</span></dt>
+                <dd>
+                    <span>{{ busRoute.driver }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.monitor">Monitor</span></dt>
+                <dd>
+                    <span>{{ busRoute.monitor }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.deviceId">Device Id</span></dt>
+                <dd>
+                    <span>{{ busRoute.deviceId }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.routeState">Route State</span></dt>
+                <dd>
+                    <span>{{ busRoute.routeState }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappBusRoute.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'isourceschooladmingatewayappApp.BusRouteStatus.' + busRoute.status }}">{{ busRoute.status }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bus-route', busRoute.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

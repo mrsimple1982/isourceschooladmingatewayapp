@@ -1,0 +1,30 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "isourceproductappPickupRequest": {
+      "home": {
+        "title": "PickupRequests",
+        "createLabel": "Créer un nouveau Pickup Request",
+        "createOrEditLabel": "Créer ou éditer un Pickup Request",
+        "notFound": "Aucun Pickup Request trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Pickup Request {{ id }} ?"
+      },
+      "detail": {
+        "title": "Pickup Request"
+      },
+      "pickupDate": "Pickup Date",
+      "pickupTime": "Pickup Time",
+      "reason": "Reason",
+      "approvalStatus": "Approval Status",
+      "student": "Student"
+    }
+  },
+  "isourceproductappApp": {
+    "isourceproductappPickupRequest": {
+      "created": "Un nouveau Pickup Request a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Pickup Request avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Pickup Request avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

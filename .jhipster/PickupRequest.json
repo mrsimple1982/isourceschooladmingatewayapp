@@ -1,0 +1,43 @@
+{
+  "name": "PickupRequest",
+  "fields": [
+    {
+      "fieldName": "pickupDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "pickupTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "reason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "approvalStatus",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "pickupRequest",
+      "relationshipName": "student",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200727152507",
+  "entityTableName": "pickup_request",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["isourceschooladmingatewayapp", "isourceparentsconnectgatewayapp", "isourceproductapp"],
+  "microserviceName": "isourceproductapp"
+}

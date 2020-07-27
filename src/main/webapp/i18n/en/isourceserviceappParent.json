@@ -1,0 +1,31 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "isourceserviceappParent": {
+      "home": {
+        "title": "Parents",
+        "createLabel": "Create a new Parent",
+        "createOrEditLabel": "Create or edit a Parent",
+        "notFound": "No Parents found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Parent {{ id }}?"
+      },
+      "detail": {
+        "title": "Parent"
+      },
+      "name": "Name",
+      "dateOfBirth": "Date Of Birth",
+      "parentMobileNumber": "Parent Mobile Number",
+      "parentEmail": "Parent Email",
+      "approvalStatus": "Approval Status",
+      "studentId": "Student Id"
+    }
+  },
+  "isourceserviceappApp": {
+    "isourceserviceappParent": {
+      "created": "A new Parent is created with identifier {{ param }}",
+      "updated": "A Parent is updated with identifier {{ param }}",
+      "deleted": "A Parent is deleted with identifier {{ param }}"
+    }
+  }
+}

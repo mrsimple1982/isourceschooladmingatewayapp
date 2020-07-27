@@ -1,0 +1,29 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "isourceproductappAbsenceRequest": {
+      "home": {
+        "title": "AbsenceRequests",
+        "createLabel": "Créer un nouveau Absence Request",
+        "createOrEditLabel": "Créer ou éditer un Absence Request",
+        "notFound": "Aucun Absence Request trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Absence Request {{ id }} ?"
+      },
+      "detail": {
+        "title": "Absence Request"
+      },
+      "absenceDate": "Absence Date",
+      "reason": "Reason",
+      "approvalStatus": "Approval Status",
+      "student": "Student"
+    }
+  },
+  "isourceproductappApp": {
+    "isourceproductappAbsenceRequest": {
+      "created": "Un nouveau Absence Request a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Absence Request avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Absence Request avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

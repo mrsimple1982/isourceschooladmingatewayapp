@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudentEvents.home.title">Student Events</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-student-events" [routerLink]="['/student-events/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudentEvents.home.createLabel">
+            Create a new Student Events
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="studentEvents?.length === 0">
+        <span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudentEvents.home.notFound">No studentEvents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="studentEvents && studentEvents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eventType"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudentEvents.eventType">Event Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eventDate"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudentEvents.eventDate">Event Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eventStatus"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudentEvents.eventStatus">Event Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="student.id"><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappStudentEvents.student">Student</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let studentEvents of studentEvents ;trackBy: trackId">
+                    <td><a [routerLink]="['/student-events', studentEvents.id, 'view']">{{ studentEvents.id }}</a></td>
+                    <td>{{ studentEvents.eventType }}</td>
+                    <td>{{ studentEvents.eventDate | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'isourceschooladmingatewayappApp.StudentEventStatus.' + studentEvents.eventStatus }}">{{ studentEvents.eventStatus }}</td>
+                    <td>
+                        <div *ngIf="studentEvents.student">
+                            <a [routerLink]="['/student', studentEvents.student?.id, 'view']" >{{ studentEvents.student?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/student-events', studentEvents.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/student-events', studentEvents.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(studentEvents)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="studentEvents && studentEvents.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

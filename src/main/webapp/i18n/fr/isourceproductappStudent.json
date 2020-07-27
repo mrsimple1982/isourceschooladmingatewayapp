@@ -1,0 +1,38 @@
+{
+  "isourceschooladmingatewayappApp": {
+    "isourceproductappStudent": {
+      "home": {
+        "title": "Students",
+        "createLabel": "Créer un nouveau Student",
+        "createOrEditLabel": "Créer ou éditer un Student",
+        "notFound": "Aucun Student trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Student {{ id }} ?"
+      },
+      "detail": {
+        "title": "Student"
+      },
+      "name": "Name",
+      "dateOfBirth": "Date Of Birth",
+      "studentDivision": "Student Division",
+      "classTeacher": "Class Teacher",
+      "address": "Address",
+      "status": "Status",
+      "parentMobileNumber": "Parent Mobile Number",
+      "parentEmail": "Parent Email",
+      "busStop": "Bus Stop",
+      "busRoute": "Bus Route",
+      "studentEvents": "Student Events",
+      "pickupRequest": "Pickup Request",
+      "absenceRequest": "Absence Request"
+    }
+  },
+  "isourceproductappApp": {
+    "isourceproductappStudent": {
+      "created": "Un nouveau Student a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Student avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Student avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

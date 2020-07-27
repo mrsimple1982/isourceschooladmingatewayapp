@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="absenceRequest">
+            <h2><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappAbsenceRequest.detail.title">Absence Request</span> {{ absenceRequest.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappAbsenceRequest.absenceDate">Absence Date</span></dt>
+                <dd>
+                    <span>{{ absenceRequest.absenceDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappAbsenceRequest.reason">Reason</span></dt>
+                <dd>
+                    <span>{{ absenceRequest.reason }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappAbsenceRequest.approvalStatus">Approval Status</span></dt>
+                <dd>
+                    <span>{{ absenceRequest.approvalStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappAbsenceRequest.student">Student</span></dt>
+                <dd>
+                    <div *ngIf="absenceRequest.student">
+                        <a [routerLink]="['/student', absenceRequest.student?.id, 'view']">{{ absenceRequest.student?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/absence-request', absenceRequest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

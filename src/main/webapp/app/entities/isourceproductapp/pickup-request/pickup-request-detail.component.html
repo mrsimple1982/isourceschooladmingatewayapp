@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pickupRequest">
+            <h2><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.detail.title">Pickup Request</span> {{ pickupRequest.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.pickupDate">Pickup Date</span></dt>
+                <dd>
+                    <span>{{ pickupRequest.pickupDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.pickupTime">Pickup Time</span></dt>
+                <dd>
+                    <span>{{ pickupRequest.pickupTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.reason">Reason</span></dt>
+                <dd>
+                    <span>{{ pickupRequest.reason }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.approvalStatus">Approval Status</span></dt>
+                <dd>
+                    <span>{{ pickupRequest.approvalStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="isourceschooladmingatewayappApp.isourceproductappPickupRequest.student">Student</span></dt>
+                <dd>
+                    <div *ngIf="pickupRequest.student">
+                        <a [routerLink]="['/student', pickupRequest.student?.id, 'view']">{{ pickupRequest.student?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pickup-request', pickupRequest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
