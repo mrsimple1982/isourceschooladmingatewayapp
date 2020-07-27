@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+      <div class="card text-white mb-4 bg-primary">
+        <div class="card-body">989 total students</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/dashboard">See all students</a>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card text-white mb-4 bg-primary">
+        <div class="card-body">90 teachers</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/dashboard">See all teachers</a>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card text-white mb-4 bg-danger">
+        <div class="card-body">29 Absents</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/dashboard">Today's register</a>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card text-white mb-4 bg-danger">
+        <div class="card-body">Violation Tracker (8 Violation)</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="/dashboard">Tracker</a>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-xl-6 col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <div class="mr-1 ng-fa-icon float-left">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+            </svg>
+          </div>
+          Student Notifications
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Student Details</th>
+              <th scope="col">Type</th>
+              <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let entry of studentsNotification; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                {{ entry.name }} (Division: {{ entry.standard }})
+              </td>
+              <td>
+                <svg *ngIf="entry.type == 'warning'" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-exclamation-circle-fill text-warning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                </svg>
+                <svg *ngIf="entry.type == 'danger'" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-slash-circle-fill text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708l-7 7a.5.5 0 0 0 .708.708l7-7z"/>
+                </svg>
+              </td>
+              <td><button type="button" class="btn btn-primary btn-sm">Snooze</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <div class="mr-1 ng-fa-icon float-left">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
+              <path d="M13.784 14c-.497-1.27-1.988-3-5.784-3s-5.287 1.73-5.784 3h11.568z"/>
+              <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+          </div>
+          Approve Parent Requests
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Student Detail</th>
+              <th scope="col">Requested Date</th>
+              <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let entry of parentsRequest; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                {{ entry.name }} (Division: {{ entry.standard }})<br>
+                <b>Parent Details:</b> {{ entry.parentName }} ({{ entry.parentCellNumber }})<br>
+                <b>Reason:</b> {{ entry.reason }}
+              </td>
+              <td>{{ entry.requestedDate }}</td>
+              <td><button type="button" class="btn btn-success btn-sm">Approve</button>&nbsp;<button type="button" class="btn btn-danger btn-sm">Reject</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './isourceproductapp/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
       {
         path: 'student',
         loadChildren: () => import('./isourceproductapp/student/student.module').then(m => m.IsourceproductappStudentModule),

@@ -14,6 +14,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
+import { DashboardComponent } from './entities/isourceproductapp/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,15 @@ import { ErrorComponent } from './layouts/error/error.component';
     IsourceschooladmingatewayappEntityModule,
     IsourceschooladmingatewayappAppRoutingModule,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    FooterComponent,
+    DashboardComponent,
+  ],
   bootstrap: [MainComponent],
 })
 export class IsourceschooladmingatewayappAppModule {}
